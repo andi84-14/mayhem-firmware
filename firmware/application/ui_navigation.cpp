@@ -945,7 +945,7 @@ void ReceiversMenuView::on_populate() {
         add_item({"..", Theme::getInstance()->fg_light->foreground, &bitmap_icon_previous, [this]() { nav_.pop(); }},
                  true);
     } 
-    { "Drone Guard", Color::red(), &bitmap_icon_tatt_icon, [this]() { nav_.push<DroneGuardView>(); } },
+    { "Drone Guard", Color::red(), &bitmap_icon_app_scanner, [this]() { nav_.push<DroneGuardView>(); } },
     add_apps(nav_, *this, RX);
     add_external_items(nav_, app_location_t::RX, *this, return_icon ? 1 : 0);
 }
