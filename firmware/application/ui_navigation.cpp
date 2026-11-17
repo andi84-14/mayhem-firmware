@@ -23,7 +23,7 @@
  */
 
 #include "ui_navigation.hpp"
-
+#include "apps/ui_drone_guard.hpp"
 #include "event_m0.hpp"
 #include "portapack_persistent_memory.hpp"
 #include "lcd_tuning_file.hpp"
@@ -944,7 +944,8 @@ void ReceiversMenuView::on_populate() {
     if (return_icon) {
         add_item({"..", Theme::getInstance()->fg_light->foreground, &bitmap_icon_previous, [this]() { nav_.pop(); }},
                  true);
-    }
+    } 
+    { "Drone Guard", Color::red(), &bitmap_icon_Utilities, [](NavigationView& nav) { nav.push<DroneGuardView>(); } },
     add_apps(nav_, *this, RX);
     add_external_items(nav_, app_location_t::RX, *this, return_icon ? 1 : 0);
 }
